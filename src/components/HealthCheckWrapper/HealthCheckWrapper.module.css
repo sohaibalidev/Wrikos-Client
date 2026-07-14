@@ -1,0 +1,420 @@
+.loadingScreen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+  animation: fadeIn 0.5s ease;
+}
+
+.loadingContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.75rem;
+  padding: 3rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  transition: var(--transition);
+}
+
+.loadingContent:hover {
+  box-shadow: var(--shadow-2xl);
+}
+
+.spinner {
+  width: 56px;
+  height: 56px;
+  border: 4px solid var(--border-color);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.loadingText {
+  text-align: center;
+}
+
+.loadingText h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.loadingText p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+/* Offline Screen */
+.offlineScreen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: var(--bg-primary);
+  animation: fadeIn 0.5s ease;
+}
+
+.offlineCard {
+  max-width: 520px;
+  width: 100%;
+  padding: 3rem 2.5rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  text-align: center;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.offlineCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-warm);
+}
+
+.offlineCard:hover {
+  box-shadow: var(--shadow-2xl);
+}
+
+.offlineIconWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.offlineIcon {
+  font-size: 3.5rem;
+  color: var(--danger);
+  animation: pulse 2s ease-in-out infinite;
+  background: rgba(var(--danger-rgb), 0.1);
+  padding: 1rem;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+}
+
+.offlineCard h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.5px;
+}
+
+.offlineDescription {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.offlineNotice {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: rgba(var(--primary-rgb), 0.08);
+  border: 1px solid rgba(var(--primary-rgb), 0.15);
+  border-radius: var(--radius-md);
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.offlineNotice svg {
+  color: var(--primary);
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.offlineNotice span {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.offlineNotice span strong {
+  color: var(--text-primary);
+}
+
+.retrySection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.retryInfo {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.retryCount {
+  font-weight: 500;
+}
+
+.retryTimer {
+  font-weight: 500;
+}
+
+.retryTimer strong {
+  color: var(--text-primary);
+}
+
+.progressWrapper {
+  width: 100%;
+  height: 6px;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.progressBar {
+  height: 100%;
+  background: var(--gradient-primary);
+  transition: width 0.5s ease;
+  border-radius: var(--radius-full);
+}
+
+.retryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  background: var(--gradient-primary);
+  color: var(--text-inverse);
+  border: none;
+  border-radius: var(--radius-full);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--font-sans);
+  box-shadow: 0 2px 8px rgba(var(--primary-rgb), 0.2);
+  margin-top: 0.5rem;
+  min-height: 48px;
+  min-width: 140px;
+  position: relative;
+}
+
+.retryButton:hover:not(:disabled) {
+  box-shadow: 0 8px 24px rgba(var(--primary-rgb), 0.3);
+}
+
+.retryButton:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.retryButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: 0 2px 8px rgba(var(--primary-rgb), 0.15);
+}
+
+.retryButton svg {
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.spinning {
+  animation: spin 1s linear infinite;
+}
+
+.maxRetriesReached {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.maxRetriesReached p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.maxRetriesReached p strong {
+  color: var(--text-primary);
+}
+
+.retryHelp {
+  color: var(--text-tertiary);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.refreshButton {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  box-shadow: none;
+}
+
+.refreshButton:hover:not(:disabled) {
+  background: var(--bg-tertiary);
+  box-shadow: var(--shadow-md);
+}
+
+/* Dark Theme Specific Overrides */
+[data-theme="dark"] .offlineCard {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .offlineIcon {
+  background: rgba(var(--danger-rgb), 0.15);
+}
+
+[data-theme="dark"] .offlineNotice {
+  background: rgba(var(--primary-rgb), 0.12);
+  border-color: rgba(var(--primary-rgb), 0.2);
+}
+
+[data-theme="dark"] .loadingContent {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .retryButton {
+  box-shadow: 0 2px 8px rgba(var(--primary-rgb), 0.3);
+}
+
+[data-theme="dark"] .retryButton:hover:not(:disabled) {
+  box-shadow: 0 8px 24px rgba(var(--primary-rgb), 0.4);
+}
+
+[data-theme="dark"] .refreshButton {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .refreshButton:hover:not(:disabled) {
+  background: var(--bg-secondary);
+}
+
+/* Animations */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(0.95);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .offlineCard {
+    padding: 2rem 1.5rem;
+  }
+
+  .offlineIcon {
+    font-size: 2.5rem;
+    width: 64px;
+    height: 64px;
+    padding: 0.75rem;
+  }
+
+  .offlineCard h2 {
+    font-size: 1.5rem;
+  }
+
+  .offlineDescription {
+    font-size: 0.9rem;
+  }
+
+  .offlineNotice {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0.75rem 1rem;
+  }
+
+  .offlineNotice span {
+    font-size: 0.85rem;
+  }
+
+  .retryInfo {
+    flex-direction: column;
+    gap: 0.25rem;
+    align-items: center;
+  }
+
+  .retryButton {
+    padding: 0.625rem 1.5rem;
+    font-size: 0.9rem;
+    min-height: 44px;
+    min-width: 120px;
+  }
+
+  .loadingContent {
+    padding: 2rem 1.5rem;
+    margin: 1rem;
+  }
+
+  .loadingText h3 {
+    font-size: 1.1rem;
+  }
+
+  .loadingText p {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .offlineCard {
+    padding: 1.5rem 1rem;
+  }
+
+  .offlineIcon {
+    width: 52px;
+    height: 52px;
+    font-size: 2rem;
+    padding: 0.5rem;
+  }
+
+  .offlineCard h2 {
+    font-size: 1.25rem;
+  }
+
+  .retryButton {
+    min-height: 40px;
+    min-width: 100px;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.85rem;
+  }
+}
